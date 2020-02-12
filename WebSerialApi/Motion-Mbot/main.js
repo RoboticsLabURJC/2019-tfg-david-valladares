@@ -16,7 +16,6 @@ let inputStream;
 //-- Botón de conexion al puerto serie
 const butConnect = document.getElementById('butConnect');
 
-//-- LED checkbox
 const avance = document.getElementById('avanzar');
 const back = document.getElementById('retroceder');
 const left = document.getElementById('izquierda');
@@ -24,7 +23,7 @@ const right = document.getElementById('derecha');
 const stop = document.getElementById('parar');
 
 
-//-- EStado del boton1
+//-- EStado del boton
 const button1 = document.getElementById('Button');
 
 //------------------------------------------------------
@@ -74,7 +73,7 @@ async function clickConnect() {
   //-- Estado inicial del checkbutton
   writeToStream('4');
 
-  //-- Retrollamada del Checkbutton para acceder al LED
+  //-- Retrollamada del Checkbutton
   avance.onclick = () => {
     if (avance.checked)
       writeToStream('0');
