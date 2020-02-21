@@ -56,8 +56,6 @@ async function clickConnect() {
 
     //-- Cambiar el estado de al interfaz
     butConnect.textContent = '🔌Conectar';
-    ledAD.disabled = true;
-
     return;
   }
 
@@ -65,12 +63,8 @@ async function clickConnect() {
   await connect();
 
   //-- Activar la interfaz
-  ledAD.disabled = false;
   butConnect.textContent = '🔌Desconectar';
 
-  //-- Estado inicial del checkbutton
-  ledAD.checked = false;
-  //-- Retrollamada del Checkbutton para acceder al LED
 
 
 }
@@ -172,7 +166,9 @@ function writeToStream(contenido) {
   //-- Liberar el stream
   writer.releaseLock();
 }
-
+//----------------------------------------
+//-- Cuando Selecionamos el archivo una vez conectado, se lee el fichero y se envia por el puerto serie.
+//----------------------------------------
 document.getElementById('file-input')
     .addEventListener('change', leerArchivo, false);
 
