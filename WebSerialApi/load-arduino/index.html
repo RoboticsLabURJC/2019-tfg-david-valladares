@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Avrbro - sample" />
+    <title>Avrbro - Sample</title>
+    <script type="module">
+      import avrbro from './dist/avrbro.m.js'
+      // reference to .hex buffer
+      let hexBuffer;
+      document.getElementById('flash-button').addEventListener('click', async () => {
+        const serial = await avrbro.openSerial();
+        if (serial) {
+          // avalaible boards are listed in https://github.com/kaelhem/avrbro/tree/master/src/boards.js
+          const options = {
+            boardName: 'uno',
+            debug: true
+          }
+          const success = await avrbro.flash(serial, hexBuffer, options);
+          if (success) {
+            console.log('.hex file uploaded on board successfully!');
+          }
+        } else {
+          console.log('Operation canceled by user');
+        }
+      });
+
+
+
+      document.getElementById('file-input')
+              .addEventListener('change', leerArchivo, false);
+
+      function leerArchivo(e) {
+        const archivo = e.target.files[0];
+        if (!archivo) {
+          return;
+        }
+        const lector = new FileReader();
+        lector.onload = function(e) {
+          let contenido = e.target.result;
+          mostrarContenido(contenido);
+          document.getElementById('actionsButtons').style.display = 'block';
+          hexBuffer = avrbro.parseHex(new TextDecoder("utf-8").decode(contenido));
+          console.log(hexBuffer)
+        };
+        lector.readAsArrayBuffer(archivo);
+      }
+      function mostrarContenido(contenido) {
+        const elemento = document.getElementById('contenido-archivo');
+        elemento.innerHTML = contenido;
+      };
+    </script>
+  </head>
+  <body>
+  <header class="header">
+    <h1>Arduino WebSerial. </h1>
+  </header>
+  <main class="main">
+    <br>
+    <div style="display: none" id="noserial">
+      <p>This exemple is based on the Serial Api. You should use Chrome web browser <b>and</b> activate this option:</p>
+      <code>chrome://flags/#enable-experimental-web-platform-features</code>
+      <p style="font-style: italic">copy/paste this in a new tab to active the Serial Api.</p>
+    </div>
+    <br>
+    <div id="actionsButtons" style="display: none">
+      <button type= "button" id="flash-button">flash .hex on board</button>
+    </div>
+    <br>
+    <input type="file" id="file-input" />
+    <h3>Contenido del archivo:</h3>
+    <pre id="contenido-archivo"></pre>
+    <br>
+    <br>
+  </main>
+  </body>
+</html>
