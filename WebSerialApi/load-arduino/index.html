@@ -27,8 +27,6 @@
         }
       });
 
-
-
       document.getElementById('file-input')
               .addEventListener('change', leerArchivo, false);
 
@@ -41,6 +39,7 @@
         lector.onload = function(e) {
           let contenido = e.target.result;
           mostrarContenido(contenido);
+          hexBuffer = avrbro.parseHex(new TextDecoder("utf-8").decode(contenido));
           document.getElementById('actionsButtons').style.display = 'block';
           hexBuffer = avrbro.parseHex(new TextDecoder("utf-8").decode(contenido));
           console.log(hexBuffer)
