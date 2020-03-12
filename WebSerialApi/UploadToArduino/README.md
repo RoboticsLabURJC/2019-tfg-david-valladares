@@ -1,6 +1,5 @@
 
 ## Implementation through the avr girl-arduino library
-Run npm install avrgirl-arduino in your shell of choice
 
 ## How to run this example 
 Raise a server, two easy ways to do it:
@@ -11,3 +10,5 @@ You can then navigate to `http://localhost:3000` in Chrome and play with the app
 ## Requirements
 The Web Serial API is currently in development and is only available behind a flag on the stable branch of Chrome. Please enable the #enable-experimental-web-platform-features flag in chrome://flags to run this example.
 
+## References:
+[avrgirl-arduino](https://github.com/noopkat/avrgirl-arduino)
