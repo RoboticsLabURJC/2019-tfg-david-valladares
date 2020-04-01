@@ -1,0 +1,144 @@
+
+{% load static %} <!-- Cargamos los archivos estaticos -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<h3 class="text-center">En esta sección podrás enviar tu código al Tello.</h3>
+
+<div class="text-center">
+    <img class="text-center" src="{% static '/'%}{{ exercise.language }}/{{ exercise.exercise_id }}/img/tello.jpg" width="300px" height="250px">
+</div>
+
+<div id="text" class="text-center">
+    <h3><span id = "proxy_state" class="label label-danger">Preparado</span></h3>
+    {% if exercise.language == "python" %}
+        <button type="button" id ="send_tello" class="btn btn-info" onclick="send_code_2_tello()"><span class="glyphicon glyphicon-send"></span> Ejecutar en Tello</button>
+    {% elif exercise.language == "scratch" %}
+        <button type="button" id ="send_tello" class="btn btn-info" onclick="convert_and_send_2_tello()"><span class="glyphicon glyphicon-send"></span> Ejecutar en Tello</button>
+    {% endif %}
+</div>
+
+<center><div id="loader-div" class="loader" style="display: none;"></div></center>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+{% csrf_token %}
+<script>
+//var websocket;
+// PYTHON
+function send_code_2_tello() {
+    var ld = document.getElementById("loader-div");
+    ld.style.display = "block"; 
+    var editor = ace.edit("ace");
+    let notebook = editor.getValue();
+    console.log(notebook);
+    const message = {
+        headers: { "X-CSRFToken": Cookies.get('csrftoken') },
+        method: "POST",
+        body: JSON.stringify({'exercise_id': "{{ exercise.exercise_id }}", 'notebook': JSON.stringify(notebook)})
+    };
+    let req_url = '/get_robot_code/';
+    fetch(req_url, message)
+        .then(response => {
+            ld.style.display = "none";
+            if (response.ok) {
+                downloadExecutable(response);
+            } else {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error al obtener el código.',
+                });
+            }
+        })
+        .catch(err => console.error(err));
+}
+
+// SCRATCH
+function convert_and_send_2_tello() {
+    var ld = document.getElementById("loader-div");
+    ld.style.display = "block"; 
+    var pythoncode = Blockly.Python.workspaceToCode(editor.ui);
+    console.log(pythoncode);
+
+    const message = {
+        headers: { "X-CSRFToken": Cookies.get('csrftoken') },
+        method: "POST",
+        body: JSON.stringify({'exercise_id': "{{ exercise.exercise_id }}", 'code': pythoncode})
+    };
+    var req_url = '/get_robot_code/';
+    fetch(req_url, message)
+        .then(response => {
+            ld.style.display = "none";
+            if (response.ok) {
+                // UNCOMMENT THE PREFERRED OPTION.
+                //chunkBlob(response); // OPTION A: send the executable to client's proxy, where it will be executed.
+                downloadExecutable(response); // OPTION B: download the executable. Client must launch it. No proxy required.
+            } else {
+                // if no code is returned, show an error
+                Swal.fire({
+                    type: 'error',
+                    text: 'Oops...',
+                    title: 'Error al obtener el código. Revisa la estructura de los bloques de Scratch.',
+                });
+                return;
+            }
+        })
+        .catch(err => console.error(err));
+}
+
+function downloadExecutable(resp) {
+    resp.blob().then(blob => {
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = 'tello_code';
+        a.click();
+        window.URL.revokeObjectURL(url)
+    })
+    console.log("Executable downloaded");
+}
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    tello_label = document.getElementById('proxy_state');
+    tello_label.classList.add("label-success");
+    tello_label.classList.remove("label-danger");
+});
+
+function save_exercise() {
+    var editor = ace.edit("ace");
+    let code = editor.getValue();
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log('código guardado con éxito');
+      }
+    };
+    var csrf = '{{ csrf_token }}';
+    xhttp.open("POST", "/save_user_code/", true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.setRequestHeader("X-CSRFToken", csrf);
+    xhttp.send(JSON.stringify({
+        simulation_code : code
+    }));
+}
+</script>
+
+<style>
+.loader {
+  margin-top: 25px;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>

@@ -1,0 +1,69 @@
+{% extends "jderobot_kids/base.html" %}
+{% load static %} <!-- Cargamos los archivos estaticos -->
+{% block content %} <!-- Cargamos el módulo de Internacionalización -->
+
+
+<link rel="stylesheet" type="text/css" href='{% static "datatables/datatables.min.css" %}'/>
+<script type="text/javascript" src='{% static "datatables/datatables.min.js" %}'></script>
+
+<style>
+
+    th, tr{
+        text-align: center
+    }
+
+</style>
+
+<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 text-center container">
+    <div class="panel panel-default">
+        <div class="panel-heading"><b>{% trans "Usuarios" %}</b></div>
+        <div class="panel-body">
+             <table id="users" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>{% trans "Nombre de Usuario" %}</th>
+                        <th>{% trans "Email" %}</th>
+                        <th>{% trans "Rol" %}</th>
+                        <th>{% trans "Último Inicio de Sesión"%}</th>
+                        <th>{% trans "Fecha de Registro" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td class="text-center">{{user.username}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.profile.role | title}}</td>
+                            <td>{{user.last_login}}</td>
+                            <td>{{user.date_joined}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#users').DataTable({
+            responsive: true,
+            dom: "<'col-xs-6 text-left'l><'col-xs-6'f>t<'col-xs-6 text-left'B><'col-xs-6'p><'col-xs-12'i>",
+            buttons: [{
+                        extend: 'pdfHtml5',
+                        text: 'Export PDF',             
+                    }, 
+                    {
+                        extend: 'copyHtml5',
+                        text: 'Copy to Clipboard',
+                        exportOptions: {
+                            modifier: {
+                                selected: true,
+                            }
+                        }
+                    }]
+        })
+    } );
+</script>
+
+{% endblock %}

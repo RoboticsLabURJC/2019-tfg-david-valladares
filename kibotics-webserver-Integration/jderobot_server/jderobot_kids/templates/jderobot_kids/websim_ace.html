@@ -1,0 +1,416 @@
+{% extends "jderobot_kids/base.html" %}
+{% load static %} <!-- Cargamos los archivos estaticos -->
+{% block content %}
+  <link rel="stylesheet" type="text/css" href='{% static "websim/Python-editor/css/main.css" %}'>
+
+  <script type="text/javascript">
+    $(document).ready(async ()=> {
+      $("#runbtn").click(() => {
+        let iconRunBtn = document.querySelector("#runbtn").firstChild;
+        if ($(iconRunBtn)[0].getAttribute("src") ===  "/static/img/icons/play.png"){
+          $(iconRunBtn).attr("src", "/static/img/icons/pause.png");
+          $('#console_output')[0].innerHTML = '';
+        } else {
+          $(iconRunBtn).attr("src", "/static/img/icons/play.png");
+        }
+      });
+    });
+    document.getElementById("goToMainPage").style.display = "inline";
+
+    window.socket = "";
+    window.userCode = '{{ user_code|escapejs }}';
+    {% if user.is_authenticated %}
+      window.wsUri = "{{ws_url}}" + "?simulation_id={{simulation.id}}";
+    {% else %}
+      window.wsUri = null
+    {% endif %}
+
+    let stream
+    let localStream;
+    let remoteStream;
+    let divVideo;
+    let pc1;
+    let pc2;
+    var sendChannel;
+    var receiveChannel;
+
+    var exercise_name = '{{ exercise }}';
+
+    var nameUser = "{{username}}";
+    var synch = false;
+
+    var lenguage = "Python";
+
+    var wsocket = new WebSocket("{{ws_url}}" + "?simulation_id={{simulation.id}}");
+
+    if ('{{synchronous}}' === "True") {
+      // variables used in streaming pc(webrtc.js) creation.
+      var configuration = {
+        "iceServers": [{ "urls": "stun:stun.1.google.com:19302" }]
+      };
+      synch = true;
+    }
+
+    /**
+     * When WebSocket is open, set the connection
+     * @param  {Object} wsocket WebSocket
+     * @return {Boolean}        Errors handler
+    **/
+    if (wsocket.readyState == WebSocket.OPEN) wsocket.onopen();
+
+  </script>
+  <script type="text/javascript" src='{% static "websim/Python-editor/js/brain-status.js" %}'></script>
+
+  <div id="exercise-nav">
+    {% if synchronous %}
+      <li>
+        <div id="searchBar" style="display: none;">
+          <div id="searchDiv">
+            <input type="search" id="userSearch" placeholder="Buscar Adversario" onkeypress="searchOpponent(event)">
+          </div>
+        </div>
+      </li>
+    {% endif %}
+    <div class="nav navbar-nav" id="exernav-center">
+      <li><a id="firstRobot" style="display: none;"></a></li>
+      <li><a id="saveCode" href="#" title="Guardar" onclick="save_exercise()" style="display: none;"><img src='{% static "img/icons/save.png" %}'/></a></li>
+      <li><a id="loadRobot" href="#" title="Cargar Código" style="display: none;" onclick="loadCode()"><img src='{% static "img/icons/load1.png" %}'/></a></li>
+      <li><a id="runbtn" href="#" title="Ejecutar" style="display: none;"><img src='{% static "img/icons/play.png" %}'/></a></li>
+      <li><a id="send_tello" href="#" title="Enviar a Tello" onclick="send_code_2_tello()" style="display: none;"><img src='{% static "img/icons/play.png" %}'/></a></li>
+      <li><a id="send_mbot" href="#" title="Enviar a Tello" onclick="send_code_to_mbot()" style="display: none;"><img src='{% static "img/icons/play.png" %}'/></a></li>
+      <li><a id="resetRobot" href="#" title="Reiniciar" style="display: none;"><img src='{% static "img/icons/reset.png" %}'/></a></li>
+      <li><a id="cambtn" href="#" title="Cámara" style="display: none;"><img src='{% static "img/icons/camera.png" %}'/></a></li>
+      <li><a id="stopStreamButton" href="#" title="Salir de la competición" onclick="exitStreaming()" style="display: none"><img src='{% static "img/icons/stop-stream.png" %}'/></a></li>
+      <li><a id="exitbtn" href="#" title="Teoría" style="display: none;" onclick="clearBar()"><img src='{% static "img/icons/exit.png" %}'/></a></li>
+    </div>
+    {% if synchronous %}
+      <li style="float: right; padding-top: 3px;">
+        <div id="checkStatus" style="display: none;">
+          <div id="checkOnline">
+            <input id="online1" type="checkbox" disabled checked>
+            <label for="online1">Usuario-Local</label>
+            <input id="online2" type="checkbox" disabled>
+            <label for="online2">Usuario-Remoto</label>
+          </div>
+
+          <div id="checkCode" disabled>
+            <input id="code1" type="checkbox" disabled>
+            <label for="code1">Código-Local</label>
+            <input id="code2" type="checkbox" disabled>
+            <label for="code2">Código-Remoto</label>
+          </div>
+        </div>
+      </li>
+    {% endif %}
+  </div>
+
+  {% if simulation_type == "websim" and exercise.platform != "pyonbrowser-theory" %}
+    <script>
+        var config_file = "{% static world %}";
+        var config_evaluator = "{{ evaluator }}";
+        var evaluator_icon1 = '{% static "websim/assets/resources/" %}' + "{{ evaluator_icon1 }}";
+        var evaluator_icon2 = '{% static "websim/assets/resources/" %}' + "{{ evaluator_icon2 }}";
+        var stop_camera_icon = '{% static "img/icons/no-camera.png" %}';
+        var play_camera_icon = '{% static "img/icons/camera.png" %}';
+    </script>
+    {% if competitive %}
+      <!-- WebSim Core -->
+      <script src='{% static "websim/Competitive-Python/build/websim.bundle.js" %}'></script>
+      <!-- Python-Editor Core -->
+      <script src='{% static "websim/Competitive-Python/build/editor.bundle.js" %}'></script>
+      <!-- ACE Editor Core -->
+      <script charset="utf-8" src='{% static "websim/Competitive-Python/js/ace-editor/src-noconflict/ace.js" %}' type="text/javascript"></script>
+      <!-- OpenCV -->
+      <script type="text/javascript" src='{% static "websim/Competitive-Python/js/opencv3.3.1.js" %}'></script>
+    {% else %}
+      <!-- WebSim Core -->
+      <script src='{% static "websim/Python-editor/build/websim.bundle.js" %}'></script>
+      <!-- Python-Editor Core -->
+      <script src='{% static "websim/Python-editor/build/editor.bundle.js" %}'></script>
+      <!-- ACE Editor Core -->
+      <script charset="utf-8" src='{% static "websim/Python-editor/js/ace-editor/src-noconflict/ace.js" %}' type="text/javascript"></script>
+      <!-- OpenCV -->
+      <script type="text/javascript" src='{% static "websim/Python-editor/js/opencv3.3.1.js" %}'></script>
+    {% endif %}
+
+  {% elif simulation_type == "websim" or exercise.platform == "pyonbrowser-theory" %}
+    <link rel="stylesheet" type="text/css" href='{% static "css/python_notebook.css" %}'>
+    <script>var config_file = "{% static  world %}";</script>
+    <!-- WebSim Core -->
+    <script src='{% static "websim/Python-editor/build/websim.bundle.js" %}'></script>
+    <!-- Python-Editor Core -->
+    <script src='{% static "websim/Python-editor/build/editor.bundle.js" %}'></script>
+    <!-- ACE Editor Core -->
+    <script charset="utf-8" src='{% static "websim/Python-editor/js/ace-editor/src-noconflict/ace.js" %}' type="text/javascript"></script>
+  {% elif simulation_type == "real" %}
+    <!-- ACE Editor Core -->
+    <script src= '{% static "/ace-editor/src-noconflict/ace.js" %}' type="text/javascript" charset="utf-8"></script>
+  {% endif %}
+
+  <style>
+    .navbar {
+      margin-bottom: 0px;
+    }
+  </style>
+
+  {% if simulation_type == "real" %}
+    <div id="loading_page" class="col-xs-6" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); width: 100%; background-color:white; display:inline;">
+      <div width="100%" height="100%" frameBorder="0" style="padding: 20px; max-height: 100%; overflow-y: scroll;">
+        {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:"_index.html" %}
+      </div>
+    </div>
+    <!-- ACE editor -->
+    <div id="editor" class="col-xs-6 editor" style="display: none">
+      <!-- editor workspace -->
+      <div id="ace" class="col-md-8" style="padding:20px 0px 0px 0px; height: calc(100vh - 72px); width: 100%; display:block;">
+{{user_code}}
+      </div>
+    </div>
+    <!-- THEORY -->
+    <div id="theory_column" class="col-xs-6 editor" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); width: 100%; display:none; background-color: white">
+      <div class="col-md-12" width="100%" height="100%" frameBorder="0" style="max-height: 100%; overflow-y: scroll;">
+        {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:"_teoria.html" %}
+      </div>
+    </div>
+    <!-- Use Guide -->
+    <div id="download_guide_column" class="col-xs-6 editor" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); display: none; background-color: white">
+        {% include "jderobot_kids/"|add:guide %}
+    </div>
+
+  {% elif simulation_type == "websim" and exercise.platform != "pyonbrowser-theory" %}
+    <div id="container">
+      <div id="loading_page" class="col-xs-6" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); width: 100%; background-color:white; display:inline;">
+        <div width="100%" height="100%" frameBorder="0" style="padding: 20px; max-height: 100%; overflow-y: scroll;">
+          {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:"_index.html" %}
+        </div>
+      </div>
+      {% if synchronous %}
+        <div id="chat_column" class="col-xs-6 editor" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); display: none">
+          {% include "jderobot_kids/websim_synchronous.html" %}
+        </div>
+      {% endif %}
+      <!-- THEORY -->
+      <div id="theory_column" class="col-xs-6" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); width: 100%; background-color:white; display:none;">
+        <div width="100%" height="100%" frameBorder="0" style="padding: 20px; max-height: 100%; overflow-y: scroll;">
+          {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:"_teoria.html" %}
+        </div>
+      </div>
+      <!-- EDITOR -->
+      <div id="editor" class="col-xs-6 editor" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); background-color:#d3dae5; display:none;">
+        {% if exercise_permissions.r %}
+          {% if exercise_permissions.w %}
+            <div id="ace">{{user_code}}</div>
+          {% else %}
+            <div id="ace" class="write-forbidden">{{user_code}}</div>
+          {% endif %}
+        {% else %}
+          <div id="ace" class="div-forbidden">{{user_code}}</div>
+        {% endif %}
+        <div id="cameditor-buttoneras" style="display:inline-flex;">
+          <div id="cameraOpenCV" style="margin-left: 5px; margin-right: 15px;">
+            <p>OpenCV image</p>
+            <canvas id="outputCanvas" style="width:150px; height:100px; display: none"></canvas>
+          </div>
+          <div id="robotCam">
+            <p>Robot Camera</p>
+            <div id="spectatorDiv" style="width: 150px; height: 100px;"></div>
+          </div>
+        </div>
+        <div class="col-xs-12" style="background: white;border: 1px solid black;height:40%; overflow-y:scroll;" id="console_output"></div>
+      </div>
+      <div id="dragbar" class="dragbar"></div>
+      <!-- SIMULADOR -->
+      <div id="myIFrame" class="col-xs-6 myIframe" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); display: none">
+        <!-- config.json -->
+      </div>
+    </div>
+  {% elif exercise.platform == "pyonbrowser-theory" %}
+    <div id="container">
+      <div id="loading_page" class="col-xs-6" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); width: 100%; background-color:#E3E1DC; display:inline;">
+        <div width="100%" height="100%" frameBorder="0" style="padding: 20px; max-height: 100%; overflow-y: scroll;">
+          {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:"_index.html" %}
+        </div>
+      </div>
+      <!-- THEORY -->
+      <div id="theory_column" class="col-xs-6" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); width: 100%; background-color:#E3E1DC; display:none;">
+        <div width="100%" height="100%" frameBorder="0" style="padding: 20px; max-height: 100%; overflow-y: scroll;">
+          {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:"_teoria.html" %}
+        </div>
+      </div>
+      <div id="editor" class="col-xs-6"  style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); width: 100%; background-color:#E3E1DC; display:none;">
+        <div style="padding: 10px 100px 10px 100px;">
+          <div style="background: white; border-radius: 1px;padding:25px;margin-bottom: 10px; box-shadow: 2px 2px #CCCAC4;">
+            <div id="problemTheory">
+            </div>
+            <button id="runbtnTH" onClick="get_python_to_javascript_code()" class="editor-button"><span class="glyphicon glyphicon-play"></span> Ejecutar Código</button>
+            {% if user.is_authenticated %}
+              {% if exercise_permissions.w %}
+                <button id="saveCodeTH" class="editor-button" onclick="save_exercise()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+              {% else %}
+                <button id="saveCodeTheory" class="editor-button" onclick="save_exercise()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+              {% endif %}
+            {% endif %}
+          </div>
+          <div>
+            <div style="display:none;" id="ace-editor-codes" class="col-xs-12"></div>
+            <div id="ace" class="col-xs-12" style="width:50%"></div>
+            <div class="col-xs-12" id="console_output"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if exercise.platform != "pyonbrowser-theory" %}
+    <script type="text/javascript">
+      function save_exercise() {
+        var editor = ace.edit("ace");
+        let code = editor.getValue();
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log('código guardado con éxito');
+          }
+        };
+
+        var csrf = '{{ csrf_token }}';
+        xhttp.open("POST", "/save_user_code/", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.setRequestHeader("X-CSRFToken", csrf);
+        xhttp.send(JSON.stringify({
+          simulation_code : code
+        }));
+      }
+
+      // ACE editor UI setup
+      var ace_editor = ace.edit("ace");
+      ace_editor.setTheme("ace/theme/monokai");
+      ace_editor.session.setMode("ace/mode/python");
+
+    </script>
+  {% else %}
+    <script type="text/javascript">
+      wsocket = new WebSocket("{{ws_url}}" + "?simulation_id={{simulation.id}}");
+      wsocket.onmessage = function(e) {
+        console.log("Conexión WS establecida con el Servidor");
+      };
+      // Call onopen directly if socket is already open
+      if (wsocket.readyState == WebSocket.OPEN) wsocket.onopen();
+
+      function get_python_to_javascript_code() {
+        var pythonCodeString = ace_editor.getValue();
+        console.log(pythonCodeString);
+        const request = new Request('/get_python_to_javascript_code', {method: 'POST', body: '{"python_code": "' + pythonCodeString +'"}'});
+        fetch(request)
+          .then(response => {
+            return response.text();
+          }).then(function(javascriptCodeString) {
+            document.getElementById('console_output').innerHTML = '';
+            javascriptCodeString = 'async function myAlgorithm(){\n'+javascriptCodeString+'\n}\nmyAlgorithm();';
+            console.log(javascriptCodeString);
+
+            eval(javascriptCodeString);
+          }).catch(error => {
+            console.error(error);
+          });
+      }
+
+      function switchToProblem(clickedId) {
+        document.getElementById("theory_column").style.display = "none";
+        document.getElementById("loading_page").style.display = "none";
+        document.getElementById('editor').style.display = 'inline';
+        document.getElementById("exitbtn").style.display = "block";
+
+        let problemTheory = $("#problemTheory > div");
+        if (problemTheory.length > 0) {
+          problemTheory.remove();
+        }
+        let problemNumber = parseInt(clickedId.split('problemButton')[1]);
+        $("#problemTheory").prepend("<div>" + $("#problemTheory" + problemNumber).html());
+        $("#problemTheory").prepend("<div id='currentProblemNumber' style='display: none'>" + problemNumber + "</div>");
+        let code = $('#ace-editor-code-' + problemNumber).text();
+        ace_editor.setValue(code);
+      }
+
+      function save_exercise() {
+        let pythonCodeString = ace_editor.getValue();
+        let currentProblemNumber = $("#currentProblemNumber").text();
+        $("#ace-editor-code-" + currentProblemNumber).text(pythonCodeString);
+        let problemsTheory = $("#problemsTheory > div");
+        var code = "";
+        for (var i = 0; i < problemsTheory.length; i++) {
+          let problemCode = $("#ace-editor-code-" + i).text();
+          if (code.substr(code.length - 1) === "\n") {
+            code += "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+            code += problemCode;
+          } else {
+            code += "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+            code += problemCode;
+          }
+        }
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            console.log('Code successfully saved');
+          }
+        };
+        var csrf = '{{ csrf_token }}';
+        xhttp.open("POST", "/save_user_code/", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.setRequestHeader("X-CSRFToken", csrf);
+        xhttp.send(JSON.stringify({
+          simulation_code : code
+        }));
+      }
+      // ACE editor UI setup
+
+      let problemsTheory = $("#problemsTheory > div");
+      let aceEditorCodes = $('#ace-editor-codes');
+      let user_code = window.userCode.split("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+      for (var i = 0; i < problemsTheory.length; i++) {
+        aceEditorCodes.append('<div  id="ace-editor-code-' + i + '">' + user_code[i+1] + '</div>');
+      }
+
+      var ace_editor = ace.edit("ace");
+      ace_editor.setTheme("ace/theme/monokai");
+      ace_editor.session.setMode("ace/mode/python");
+
+    </script>
+  {% endif %}
+  {% if synchronous %}
+    <script type="text/javascript" src='{% static "js/chat.js" %}'></script>
+
+    <script type="text/javascript" src='{% static "js/webrtc.js" %}'></script>
+    <script type="text/javascript" src='{% static "js/set_dataCH.js" %}'></script>
+  {% endif %}
+  <script type="text/javascript" src='{% static "js/display_windows.js" %}'></script>
+
+  {% if exercise.platform != "pyonbrowser-theory" %}
+    <script type="text/JavaScript">
+      if ('{{competitive}}' == "" && '{{synchronous}}' == "False") { // Display dual for Retos
+        displayDual();
+      }
+    </script>
+  {% endif %}
+
+  <style>
+    /* Button and WorkArea Permissions Management */
+    .button-forbidden {
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    .div-forbidden {
+      pointer-events: none;
+      -webkit-filter: blur(5px);
+      -moz-filter: blur(5px);
+      -o-filter: blur(5px);
+      -ms-filter: blur(5px);
+      filter: blur(5px);
+    }
+    .write-forbidden {
+      pointer-events: none;
+    }
+  </style>
+{% endblock %}

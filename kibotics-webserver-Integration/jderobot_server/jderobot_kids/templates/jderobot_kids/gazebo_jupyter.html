@@ -1,0 +1,96 @@
+{% extends "jderobot_kids/base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href='{% static "css/theory.css" %}'>
+<style type="text/css">
+    .navbar{
+        margin-bottom:0px
+    }
+</style>
+
+<div style="width: 100%;">
+
+  {% if simulation_type == "simulator" and exercise.platform == "theory" %}
+    <!-- Only-Theory JUpyter Notebooks -->
+    <div id="jupyter_column" class="col-xs-12 col" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px)">
+      <iframe id="jpifr" class="col-md-12" width="100%" height="100%" frameBorder="0" src='{{jupyter_url}}'></iframe>
+    </div>
+
+  {% elif simulation_type == "simulator" and exercise.platform == "gazebo" %}
+    <!-- Simulation with Gazebo and Jupyter -->
+    <!-- THEORY -->
+    <div id="theory_column" class="col-md-6" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); display:block;">
+      <div class="col-md-12" width="100%" height="100%" frameBorder="0" style="max-height: 100%; overflow-y: scroll;">
+        {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:"_teoria.html" %} 
+      </div>
+    </div>
+    <!-- Jupyter -->
+    <div id="jupyter_column" class="col-md-6 col" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); display:none;">
+      {% if exercise_permissions.x %}
+        <iframe id="jpifr" class="col-md-12" width="100%" height="100%" frameBorder="0" src='{{jupyter_url}}'></iframe>
+      {% else %}
+        <div class="col-md-12" style="height: calc(100vh - 72px);overflow-x: scroll;overflow-y: scroll;border: 1px solid black;">{{ jupyter_html_content | safe }}</div>
+      {% endif %}
+    </div>
+    <!-- GAZEBO (gzweb) -->
+    <div id="gazebo_column" class="col-md-6" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px)">
+      {% if gui %}
+        {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:".html" %} 
+      {% else %}
+        <iframe id="gzwifr" class="col-md-12" width="100%" height="100%" frameBorder="0" src='{{gzweb_url}}'></iframe>
+      {% endif %}
+    </div>
+
+  {% elif simulation_type == "real" %}
+    <!-- Real Robots with Jupyter -->
+    <!-- THEORY -->
+    <div id="theory_column" class="col-md-8" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); background-color:white; display:inline;">
+      <div width="100%" height="100%" frameBorder="0" style="padding: 20px; max-height: 100%; overflow-y: scroll;">
+        {% include exercise.language|add:"/"|add:exercise.exercise_id|add:"/templates/"|add:exercise.exercise_id|add:"_teoria.html" %} 
+      </div>
+    </div>
+    <!-- JUPYTER -->
+    <div id="jupyter_column" class="col-md-8" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px); display:none;">
+      <iframe id="jpifr" class="col-md-12" width="100%" height="100%" frameBorder="0" src='{{jupyter_url}}'></iframe>
+    </div>
+    <!-- Use Guide -->
+    <div id="download_guide_column" class="col-md-4" style="padding:0px 0px 0px 0px; height: calc(100vh - 72px)">
+      {% include "jderobot_kids/"|add:guide %}
+    </div>
+  {% endif %}
+</div>
+
+<script type="text/javascript">
+    socket = new WebSocket("{{ws_url}}" + "?simulation_id={{simulation.id}}");
+    socket.onmessage = function(e) {
+        console.log("Conexión WS establecida con el Servidor")
+    }
+    // Call onopen directly if socket is already open
+    if (socket.readyState == WebSocket.OPEN) socket.onopen();
+
+    function switchVisible() {
+
+        if (document.getElementById('jupyter_column').style.display == 'none') {
+            document.getElementById('jupyter_column').style.display = 'block';
+            document.getElementById('theory_column').style.display = 'none';
+            document.getElementById('ButtonSwitch').innerHTML = '<span class="glyphicon glyphicon-pencil"></span> Ver Teoría'
+        }
+        else {
+            document.getElementById('jupyter_column').style.display = 'none';
+            document.getElementById('theory_column').style.display = 'block';
+            document.getElementById('ButtonSwitch').innerHTML = '<span class="glyphicon glyphicon-console"></span> Ver Código'
+        }
+    }
+    if ("{{exercise.platform}}" != "theory") {
+        switchVisible();  
+        // Prevent iframe content to be stored in caché (GzWeb)
+        var gzweb_frame = document.getElementById("gzwifr");
+        gzweb_frame.contentWindow.location.href = gzweb_frame.src;
+    }
+     // Prevent iframe content to be stored in caché (Jupyter)
+    var jupyter_frame = document.getElementById("jpifr");
+    jupyter_frame.contentWindow.location.href = jupyter_frame.src;
+</script>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends "jderobot_kids/base.html" %}
+{% load static %} <!-- Se cargan los archivos estaticos -->
+{% block content %}
+
+
+{% if authenticate == True %}
+
+
+<style>
+    th {
+        text-align: left;
+    }
+    ul {
+        list-style-type: none;
+    }
+    body {
+        background-color: #f6f6f6;
+    }
+    .row {
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    a:hover {
+        color: black;
+    }
+    #OrderPackages {
+        background-color: #f6f6f6;
+    }
+    .hiddenRow {
+        padding: 0 !important;
+    }
+</style>
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-2 left">
+            <div class="panel panel-default">
+                <div class="navigation">
+                    <ul>
+                        <li>
+                            {% if perms.jderobot_kids.is_profesor %}
+                                <p><b>PROFESOR</b></p>
+                            {% endif %}                        
+                        </li>
+                        <br>
+                        <li>
+                            <a class="" href="/main_page">Mis Ejercicios</a>
+                        </li>
+                        <br>
+                        <li>
+                            <a class="" href="/students">Mis Alumnos</a>
+                        </li>
+                        <br>
+                        <li>
+                            <a class="" href="">Mis Soluciones</a>
+                        </li>
+                        <br>
+                        <li>
+                            <a class="" href="">Foro JdeRobot Kids</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- /col-md-2 navigation -->
+        
+        <div id="OrderPackages" class="col-md-10 content">
+            <table id="tableSearchResults" class="table table-hover table-striped table-condensed">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Alumno</th>
+                        <th>Última modificación</th>
+                        <th>Desplegar</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: left">
+                    {% for student in students %}
+                    <tr id="package_{{ forloop.counter }}" class="accordion-toggle" data-toggle="collapse" data-parent="#OrderPackages" data-target=".packageDetails{{ forloop.counter }}" onclick="accordion_indicator(this.id)">
+                        <td>{{ forloop.counter}}</td> 
+                        <td>{{ student }}</td>
+                        <td>Última fecha de modificación</td>
+                        <td><i id="symbol_{{ forloop.counter }}" class="indicator glyphicon glyphicon-plus pull-right"></i></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="hiddenRow">
+                            <div class="accordion-body collapse packageDetails{{ forloop.counter }}" id="accordion{{ forloop.counter }}">
+                                <table class="col-lg-10 col-lg-offset-1">
+                                    {% for key, values in exercises.items %}
+                                        <div>
+                                            <tr>
+                                                <td>
+                                                    <b>{{ values.name }}</b>
+                                                </td>
+                                                <!-- Simulate - Robot Simulado -->
+                                                <td>
+                                                    <a class="btn btn-success btn-responsive" href="/simulation/{{ student }}/{{ key }}"><span class="glyphicon glyphicon-eye-open" title="Simular"></span> Robot Simulado</a>
+                                                </td>
+                                                <!-- Download - Robot Real -->
+                                                <td>
+                                                    <a id=Download_{{key}} type="button" href="/download_exercise/{{ key }}" class="btn btn-warning" title="Descargar"><span class="glyphicon glyphicon-download-alt"></span> Robot Real</a> <button class="btn-circle" data-toggle="modal" data-target="#InfoDownload"><span class="glyphicon glyphicon-info-sign"></span></button>
+                                                </td>
+                                            </tr>
+                                        </div>
+                                              
+                                        <!-- Info Download -->
+                                        <div class="modal fade" id="InfoDownload" role="dialog">
+                                            <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title"><strong>¿Cómo enviar tus ficheros al PiBot?</strong></h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <ol style="text-align: left">
+                                                            <li>Pulsa en "Robot Real" para descarga los archivos.</li>
+                                                            <li>Conéctate a la red wifi de tu raspberry, con nombre de red: <code>piBot(n)</code></li>
+                                                            <li>Abre una consola y ejecuta:
+                                                                <ul>
+                                                                    <code>scp ~/Descargas/ejercicio.zip pi@10.3.141.1:/home/pi/local_Downloader/listening/</code>
+                                                                </ul>
+                                                            </li>
+                                                            <li>Por último, introducir la contraseña.</li>
+                                                        </ol> 
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+    
+
+
+
+<script>
+    function accordion_indicator(element){
+        element_number = element.split("_").pop()
+        glyphicon = document.getElementById("symbol_" + element_number)
+        if (glyphicon.className === "indicator glyphicon glyphicon-plus pull-right") {
+            glyphicon.className = "indicator glyphicon glyphicon-minus pull-right"
+        } else if (glyphicon.className === "indicator glyphicon glyphicon-minus pull-right") {
+            glyphicon.className = "indicator glyphicon glyphicon-plus pull-right"
+        }
+    }
+</script>
+
+
+
+
+
+
+{% endif %}
+{% endblock %}

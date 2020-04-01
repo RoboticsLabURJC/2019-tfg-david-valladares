@@ -1,0 +1,47 @@
+
+#Archivos de compilación
+*.pyc
+*.swp
+
+.DS_Store
+.out
+.bash_history
+.pyarmor_capsule.zip
+
+nohup.out
+
+# Configuración de vscode
+vscode/*
+.vscode/*
+jderobot_server/.vscode/settings.json
+
+# Virtual Env
+kids-venv/*
+
+# Carpetas de Usuarios
+users/
+
+# Ofuscación
+jderobot_server/static/resources/obfuscate_dir/users/*
+
+# Carpeta download
+jderobot_server/static/download/users/*
+
+#Exercises
+jderobot_server/exercises/*
+
+#Logs
+jderobot_server/logs/*
+jderobot_server/static/download/*
+
+
+# Websim
+jderobot_server/static/websim/*
+
+# Submodules
+jderobot_server/kibotics-exercises
+jderobot_server/kibotics-drivers
+jderobot_server/kibotics-websim
+jderobot_server/kibotics-pyonarduino
+jderobot_server/kibotics-pyonbrowser
+

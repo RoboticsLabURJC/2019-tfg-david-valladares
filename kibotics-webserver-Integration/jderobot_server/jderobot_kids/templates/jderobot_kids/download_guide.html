@@ -1,0 +1,35 @@
+<!-- DESCARGA -->
+<div class="modal-body">
+    <h2>Instrucciones para la descarga del ejercicio</h2>
+    <ol style="text-align: left">
+        <li>Descarga tu ejercicio aquí: <a href="/download_exercise/{{ exercise.exercise_id }}"><b>Descargar</b></a></li>
+        <li>Conéctate a la red wifi de tu raspberry, con nombre de red: <code>piBot(n)</code></li>
+        <h4>Para ordenadores con Sistema Operativo Linux o MacOSX</h4>
+        <li>Abre una consola y ejecuta:
+            <ul>
+                <pre><code>scp ~/Descargas/ejercicio.zip pi@10.3.141.1:/home/pi/local_downloader/listening/</code></pre>
+            </ul>
+        </li>
+        <h4>Para ordenadores con sistema operativo Windows:</h4>
+
+        <li>Abrimos el programa WinSCP e introducimos los datos de nuestro PiBot
+            <ul>
+                <img src='/static/img/datos_pi.PNG' width="400" height="300"></a>
+            </ul>
+        </li>
+
+        <li>Si aparece la siguiente ventana de notificación, pulsamos en Sí
+            <ul>
+                <img src='/static/img/aviso.PNG' width="300" height="200"></a>
+            </ul>
+        </li>
+
+        <li>En la parte derecha aparece el contenido de la Raspberry pi. Entramos en la carpeta <pre>/local_downloader/listener/</pre> y arrastramos el archivo desde la izquierda a la derecha.
+            <ul>
+                <img src='/static/img/navegador.PNG' width="450" height="300"></a>
+            </ul>
+        </li>
+
+        <li>Por último, introducir la contraseña. Por defecto <pre>raspberry</pre></li>
+    </ol> 
+</div>

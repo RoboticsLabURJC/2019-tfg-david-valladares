@@ -1,0 +1,1716 @@
+	{% load static %}
+
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Kibotics</title>
+
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href='{% static "img/kibotics_favicon.png"%}'>
+
+		<!-- Bootstrap Core CSS -->
+		<link href='{% static "assets/css/bootstrap/bootstrap.min.css" %}' rel="stylesheet" type="text/css">
+
+		<!-- Fonts -->
+		<link href='{% static "assets/css/plugins/font-awesome/css/font-awesome.min.css" %}' rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel='stylesheet' type='text/css'>
+		<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Pacifico2" rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<!-- Retina Images Plugin -->
+		<script src='{% static "assets/js/plugins/retina/retina.min.js" %}'></script>
+
+		<!-- Plugin CSS -->
+		<link href='{% static "assets/css/plugins/hover/hover.min.css" %}' rel="stylesheet">
+		<link href='{% static "assets/css/plugins/owl.carousel/owl.carousel.css" %}' rel="stylesheet">
+		<link href='{% static "assets/css/plugins/owl.carousel/owl.theme.css" %}' rel="stylesheet">
+		<link href='{% static "assets/css/plugins/owl.carousel/owl.transitions.css" %}' rel="stylesheet">
+		<link href='{% static "assets/css/plugins/jquery.fs.wallpaper/jquery.fs.wallpaper.css" %}' rel="stylesheet">
+		<link href='{% static "assets/css/plugins/magnific-popup/magnific-popup.css" %}' rel="stylesheet">
+
+		<!-- Spectrum CSS -->
+		<link href='{% static "assets/css/spectrum-slate.css" %}' rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	</head>
+
+	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+		<div id="wrapper">
+            <!-- Navbar -->
+			<nav class="navbar navbar-dark navbar-fixed-top" role="navigation">
+				<div class="container">
+					<div class="navbar-header page-scroll">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+						<a class="navbar-brand" href="#page-top">
+							<span class="logo">
+								<img src='{% static "img/logo_sin_fondo-vertical_azul.png" %}' alt="">
+							</span>
+						</a>
+					</div>
+
+                    <!-- Navbar menu -->
+					<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+						<ul class="nav navbar-nav">
+							<li class="hidden">
+								<a href="#page-top"></a>
+							</li>
+							<li class="page-scroll">
+								<a href="https://www.youtube.com/channel/UCVH_ODFODyRUidhtR0IIZnw/featured" target="_blank"><i class="fa fa-fw fa-youtube"></i></a>
+							</li>
+							<li class="page-scroll">
+								<a href="https://twitter.com/KiboticsOrg" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+							</li>
+							<li class="page-scroll">
+								<a href="#contact">Contacto</a>
+							</li>
+							<li>
+								<a href="https://foro.kibotics.org" target="_blank">Foro</a>
+							</li>
+              <li class="page-scroll">
+								<a href="/registration/">Registrarse</a>
+							</li>
+							<li class="page-scroll">
+								<a href="/login">Entrar</a>
+							</li>
+						</ul>
+					</div>
+					<!--<ul class="navbar-nav mr-right">-->
+				</div>
+			</nav>
+
+            <!-- Background Video -->
+            <header class="video-bg">
+                <div class="intro-video intro-dark-bg container"> 
+	     			<div class="overlay"></div>
+				    <div class="intro-body" data-scrollreveal="move 0 over 1s">
+					    <div class="container">
+					    	<br>
+						    <h1 class="brand-heading">
+							    <span class="text-primary">Ki</span>Bo<span class="text-primary">tics</span>
+							    <h4>Usando la tecnología JdeRobot</h4>
+						    </h1>
+						    <hr class="light">
+						    <div class="carousel slide" data-ride="carousel">
+                                <!-- Images Above the Video -->
+						     	<div class="carousel-inner">
+                                    <!--<div class="col-xs-6">
+                                       <img src="{% static 'assets/img/logos/web_LogoINTEF_2018_conleyenda.png' %}" style="background-color:white; max-height=90px" class="img-fluid" alt="Responsive image">
+                                    </div>
+                                    <div class="col-xs-6">
+                                       <img src="{% static 'assets/img/logos/MEFP.Gob.Web.jpg' %}" class="img-fluid" alt="Responsive image" style="max-height:90px">
+							        </div>-->
+                                    <!--<div class="col-xs-12">
+                                       <img src="{% static 'img/avatar.png' %}" class="img-fluid" alt="Responsive image" style="max-height:150px">
+							        </div>-->
+						        </div>
+					        </div>
+				        </div>
+                    </div>
+                </div>
+			</header>
+        
+            <!-- Features Section -->
+			<section id="features" class="services-1">
+				<div class="container">
+					<div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <h2>Características</h2>
+                                <br>
+                                <!-- <hr class="primary"> -->
+                                <p><strong>Kibotics</strong> es un <strong>entorno web</strong> para docencia en <strong>robótica</strong> y <strong>programación</strong> (STEM).
+                                    Enseña de manera atractiva conceptos básicos de tecnología (informática, electrónica, ...) e inicia a niñ@s y adolescentes en robótica y programación de robots. 
+                                    Sigue un <strong>enfoque práctico</strong>, de aprender haciendo. 
+                                    Ayuda a estructurar el pensamiento, a organizar las acciones en pasos para resolver un problema y a formar espíritu analítico.</p>
+                                </div>
+						<div class="col-lg-12 text-center" data-scrollreveal="enter bottom over 1.5s">
+							<ul id="services-1-carousel" class="icon-effect list-inline">
+								<li class="item">
+									<span class="icon fa-globe"></span>
+									<h3>Navegador Web</h3>
+									<p>Sin instalación.</br>Windows, MacOS, Linux</p>
+								</li>
+								<li class="item">
+									<span class="icon fa-share"></span>
+									<h3>Robots Reales y Simulados</h3>
+									<p>PiBot, drones, Fórmula 1</p>
+								</li>
+								<li class="item">
+									<span class="icon icon-code"></span>
+									<h3>Lenguajes</h3>
+									<p>Python y Scratch</p>
+								</li>
+								<li class="item">
+									<span class="icon fa-camera"></span>
+									<h3>Visión Artificial</h3>
+									<p>Ejercicios de robots con cámara</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+            <!-- Courses Section -->
+            <!--<style>
+                .flip-card {
+                  background-color: transparent;
+                  width: 350px;
+                  height: 170px;
+                  perspective: 1000px;
+                }
+
+                .flip-card-inner {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  text-align: center;
+                  transition: transform 0.6s;
+                  transform-style: preserve-3d;
+                  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+
+                .flip-card:hover .flip-card-inner {
+                  transform: rotateY(180deg);
+                }
+
+                .flip-card-front, .flip-card-back {
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  backface-visibility: hidden;
+                }
+
+                .flip-card-front {
+                  background-color: #bbb;
+                  color: black;
+                }
+
+                .flip-card-back {
+                  background-color: #2980b9;
+                  color: white;
+                  transform: rotateY(180deg);
+                }
+            </style>
+			<section id="courses" class="services-1">
+				<div class="container">
+					<div class="row">
+                      <div class="col-lg-12 col-md-12 text-center">
+                        <h2>Nuestros cursos</h2>
+                        <a href="/courses"><h3><i class="fa fa-chevron-right"></i> Ver todos los cursos <i class="fa fa-chevron-left"></i></h3></a>
+                        <br>
+                      </div>
+				      <div class="col-lg-12 text-center">
+
+						<div class="col-sm-4">
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <img src="{% static 'assets/img/portfolio/drones_course.png' %}" alt="Curso de Drones">
+                                </div>
+                                <div class="flip-card-back">
+                                  <h3>Curso de Drones</h3> 
+                                  <p style="margin: 5px;">Aprende a programar la lógica de control de un dron para enfrentar distintas situaciones.</p>
+                                </div>
+                            </div>
+                          </div>
+                        </div>	
+
+                        <div class="col-sm-4">
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <img src="{% static 'assets/img/portfolio/introduction_course.png' %}" alt="Curso de Introduccion">
+                                </div>
+                                <div class="flip-card-back">
+                                  <h3>Curso de Introducción a la Programación</h3> 
+                                  <p style="margin: 5px;">Aprende las bases de la programación y da tus primeros pasos con el lenguaje Python.</p>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-4">
+                          <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <img src="{% static 'assets/img/portfolio/pibot_course.png' %}" alt="Curso Robot PiBot">
+                                </div>
+                                <div class="flip-card-back">
+                                  <h3>Curso con el Robot PiBot</h3> 
+                                  <p style="margin: 5px;">Incluye ejercicios de Visión Artificial con PiCam, sensores de Infrarrojos y Ultrasonidos, ¡y mucha diversión!</p>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+				      </div>
+					</div>
+				</div>
+			</section>-->
+
+            <!-- Social Media Section -->
+            <section id="try_it_out" class="portfolio-1">
+                <div class="container text-center">
+                    <h2> ¡Noticias, Novedades e Información de Nueva Funcionalidad y Eventos en Nuestras Redes!</h2>
+                    <br>
+                    <div class="row col-sm-6">
+                        <div class="text-center">
+                            <!--<a href="#portfolio-modal-campamento" class="portfolio-link" data-toggle="modal"><img
+                                    src='{% static "assets/img/portfolio/taller_google_campus.png" %}' class="img-centered" alt=""></a>-->
+                            <a class="twitter-timeline" href="https://twitter.com/KiboticsOrg?ref_src=twsrc%5Etfw" data-width="450" data-height="400">Tweets by KiboticsOrg</a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                    </div>
+                    <div class="row col-sm-6" data-scrollreveal="enter bottom over 1.5s">
+                        
+                        <div class="isotope">
+                            <div class="blog-col portfolio-item" >
+                                <a href="https://blog.kibotics.org/" class="blog-preview-img portfolio-link">
+                                    <div class="caption">
+                                        <div class="caption-content">
+                                            <h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+                                        </div>
+                                    </div>
+                                    <img src='{% static "assets/img/post/post-Blog.png" %}' class="img-responsive" alt="">
+                                </a>
+                                <div class="blog-preview-content">
+                                    <h3>
+                                        <a href="#">Kiblog</a>
+                                    </h3>
+                                    <p>Visita el Blog de Kibotics, donde podrás encontar noticias relacionadas con los eventos, cursos y demostraciónes que se organizan, además de todas las actualizaciones y novedades de la plataforma.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Open Exercises Section -->
+            <section id="try_it_out" class="about-3 bg-lighter text-center">
+                <style>
+                    * {
+                        box-sizing: border-box;
+                    }
+                    .row::after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                    } 
+
+                    .column {
+                        float: left;
+                        position: relative;
+                        width: 50%;
+                        max-width: 700px;
+                    }
+
+                    .column img {
+                        width: 100%;
+                        height: auto;
+                        margin: 0px 5px 0px 5px;
+                    }
+
+                    .column .btn {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        -ms-transform: translate(-50%, -50%);
+                        background-color: #555;
+                        color: white;
+                        font-size: 16px;
+                        padding: 12px 24px;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        text-align: center;
+                    }
+
+                    .column .btn:hover {
+                        background-color: rgba(0, 174, 255, 0.747);
+                    }
+                    .open-exercise {
+                        border: 2px solid gray;
+                    }
+                    .open-exercise img {
+                        width:99%;
+                        margin-right: 5px;
+                    }
+                    .open-exercise:hover {
+                        box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    }
+                </style>
+
+				<div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2>¡Prueba ahora el ejercicio 'SigueLíneas' con Scratch!</h2>
+                            <div class="column open-exercise" style="width:100%; max-width:100%">
+                                <img src='{% static "assets/img/carrousel/websim-siguelinea.png" %}' witdh="300" height="300">
+                                <a class="btn btn-social-ligth" href="/websim-scratch/websim/SSPib000"> Sigue Línea (Scratch)</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2>¡Prueba también el ejercicio 'SigueLíneas con Fórmula 1', esta vez en Python!</h2>
+                            <div class="column open-exercise" style="width:100%; max-width:100%">
+                                <img src='{% static "assets/img/carrousel/websim-siguelineaf1-python.png" %}' witdh="300" height="300">
+                                <a class="btn btn-social-ligth" href="/websim-ace/websim/PSFo1017"> Sigue Línea F1 (Python)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Presentation Section (Video) -->
+            <section id="try_it_out" class="services-1">
+				<div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2>Presentación de Kibotics (2019)</h2>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Tgs993v3nz0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exercise Samples Section 1 -->
+			<section id="work" class="portfolio-1">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h2>Ejercicios con el robot PiBot</h2>
+							<br>
+                            <!-- Filters -->
+							<!--<ul class="list-inline hidden-xs" id="filters">
+								<li>
+									<button data-filter="*" type="button" class="btn btn-primary btn-square btn-raised">Todo</button>
+								</li>
+								<li>
+									<button data-filter=".scratch" type="button" class="btn btn-primary btn-square btn-raised">Scratch</button>
+								</li>
+								<li>
+									<button data-filter=".sensores_actuadores" type="button" class="btn btn-primary btn-square btn-raised">Sensores y Actuadores</button>
+								</li>
+								<li>
+									<button data-filter=".comportamientos" type="button" class="btn btn-primary btn-square btn-raised">Comportamientos</button>
+								</li>
+							</ul> -->
+						</div>
+					</div>
+					<div class="row" data-scrollreveal="enter bottom over 1.5s">
+						<div class="isotope">
+                            
+                            <div class="col-sm-4 portfolio-item scratch">
+								<a href="#portfolio-modal-1" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/sigue_linea_ir_index.png" %}' class="img-centered" alt="">
+								</a>
+                            </div>
+                            <div class="col-sm-4 portfolio-item scratch">
+								<a href="#portfolio-modal-2" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/sigue_pelota_index.png" %}' class="img-centered" alt="">
+								</a>
+                            </div>
+                            <div class="col-sm-4 portfolio-item scratch">
+								<a href="#portfolio-modal-3" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/choca_gira_index.png" %}' class="img-centered" alt="">
+								</a>
+                            </div>
+                            
+                            <!--
+                            <div class="col-sm-4 portfolio-item scratch">
+								<a href="#portfolio-modal-1" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-scratch.png" %}' class="img-centered" alt="">
+								</a>
+							</div>
+							<div class="col-sm-4 portfolio-item scratch">
+								<a href="#portfolio-modal-2" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-sos.png" %}' class="img-centered" alt="">
+								</a>
+							</div>
+							<div class="col-sm-4 portfolio-item sensores_actuadores">
+								<a href="#portfolio-modal-3" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-matriz-led.png" %}' class="img-centered" alt="">
+								</a>
+							</div>
+							<div class="col-sm-4 portfolio-item sensores_actuadores">
+								<a href="#portfolio-modal-4" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-sistema-aparcamiento.png" %}' class="img-centered" alt="">
+								</a>
+							</div>
+							<div class="col-sm-4 portfolio-item sensores_actuadores">
+								<a href="#portfolio-modal-5" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-choca-gira.png" %}' class="img-centered" alt="">
+								</a>
+							</div>
+							<div class="col-sm-4 portfolio-item sensores_actuadores">
+								<a href="#portfolio-modal-6" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-sensor-sonido.png" %}' class="img-centered" alt="">
+								</a>
+							</div>
+							<div class="col-sm-4 portfolio-item sensores_actuadores">
+								<a href="#portfolio-modal-7" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-sigue-lineas.png" %}' class="img-centered" alt="">
+								</a>
+							</div>
+							<div class="col-sm-4 portfolio-item comportamientos">
+								<a href="#portfolio-modal-8" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-jugando-futbol.png" %}' class="img-centered" alt="">
+								</a>
+							</div>
+							<div class="col-sm-4 portfolio-item comportamientos">
+								<a href="#portfolio-modal-9" class="portfolio-link" data-toggle="modal">
+									<div class="caption">
+										<div class="caption-content">
+											<h3><i class="fa fa-search fa-2x"></i>
+											</h3>
+										</div>
+									</div>
+									<img src='{% static "assets/img/portfolio/mbot-camino-predefinido.png" %}' class="img-centered" alt="">
+								</a>
+                            </div>
+                        -->
+							<!-- <div class="col-sm-12 col-md-12 portfolio-item mas_videos" style="text-align: center">
+								<a href="#portfolio-modal-10" class="portfolio-link" data-toggle="modal">
+								    <div class="caption">
+										<div class="caption-content">
+										</div>
+									</div>
+									<button data-filter="*" type="button" class="btn btn-primary btn-square btn-raised">Más vídeos</button>
+								</a>
+							</div>-->
+						</div>
+					</div>
+				</div>
+			</section>
+
+            <!-- Exercise Samples Section 2 -->
+            <section id="work" class="portfolio-1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <h2>Ejercicios con simulador</h2>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row" data-scrollreveal="enter bottom over 1.5s">
+                            <div class="isotope">
+                                
+                                <div class="col-sm-6 portfolio-item scratch">
+                                    <a href="#portfolio-modal-5" class="portfolio-link" data-toggle="modal">
+                                        <div class="caption">
+                                            <div class="caption-content">
+                                                <h3><i class="fa fa-search fa-2x"></i>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <img src='{% static "assets/img/portfolio/sigue_linea_vision_index.png" %}' class="img-centered" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 portfolio-item scratch">
+                                    <a href="#portfolio-modal-6" class="portfolio-link" data-toggle="modal">
+                                        <div class="caption">
+                                            <div class="caption-content">
+                                                <h3><i class="fa fa-search fa-2x"></i>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <img src='{% static "assets/img/portfolio/drone_cat_mouse_index.png" %}' class="img-centered" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+            <!-- Descriptions Section -->
+            <!-- 
+			<section id="features" class="services-1">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-lg-offset-2 text-center">
+							<h2>Prácticas robóticas con Scratch</h2>
+							<h3>Lenguaje visual Scratch</h3>
+							<hr class="primary">
+							<p>Como empezar a programar directamente en un lenguaje de "alto" nivel como Python puede ser difícil para alguien, como alumnos de instituto, que nunca antes han aprendido programación antes, primero aprenderemos los conceptos básicos de programación con Scratch [1]. Scratch es un lenguaje visual (que ubicaríamos entre el pseudocógido y el código de programación) muy útil para este curso, ya que los robots educacionales que utilizamos se pueden manejar directamente con él, utilizando el software de la propia web de MakeBlock.</p>
+
+							<h3>Ejercicio sin robot: competición de Brick Breaker</h3>
+
+
+							<p>El objetivo del juego es motivar a los niños con un torneo del clásico juego Brick Breaker. Deberán hacer ellos mismos el juego, durante un rato cada sesión, y el que más parecido lo consiga al original, gana; el último día del trimestre se hará un campeonato jugando al juego ganador. Poco a poco, con el juego, iremos viendo distintas "necesidades" de la programación:</p>
+
+							<ul>
+								<li>Objetos: como el juego necesita un paddle, y distintos bricks, entendemos el concepto de que cada objeto tiene su propio código y su propio comportamiento. </li>
+								<li>Variables: tenemos una puntuación total, y cada brick nos da más o menos puntuación; esto nos sirve para entender el concepto de entorno de cada variable. </li>
+								<li>Bucles: obviamente, el juego se mantiene todo el rato, pero tendremos bucles infinitos (como el del paddle) y otros que acaben si pasamos de nivel, etc. </li>
+								<li>Condiciones: la misma necesidad de tener puntuaciones (además, distintas), nos obliga a aprender la condición "si...". </li>
+								<li>Escenarios: la implementación de diferentes niveles de dificultad podríamos entenderla como diferentes funciones, cada una con sus variables, mientras mantenemos una global (puntuación total), y también cambiamos los objetos, aunque el objeto 'paddle' se mantenga. </li>
+							</ul>
+
+							<p>La idea es que los niños empiecen a enfrentar el problema por ellos mismos, como atajarían un problema real de programación, haciéndose preguntas y aprendiendo a subdividir problemas complejos en los problemas más simples posibles.</p>
+
+
+							<h3>Prácticas robóticas con Python: sensores y actuadores</h3>
+
+							<p>
+								Las prácticas las hemos escalonado en cuatro niveles, de menor a mayor potencia. Primero, una serie de prácticas de programación en pseudocódigo. Segundo, familiarización con un lenguaje concreto de programación, Python. Tercero, varios ejercicios básicos con los sensores y actuadores dentro del robot. Y cuarto, prácticas de comportamientos completos del robot, usando todo lo aprendido en los niveles anteriores. 
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+        -->
+            <!-- Contact Form -->
+			<!-- <section id="contact" class="contact-1">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6" data-scrollreveal="enter left over 1.5s">
+							<h2>Contacto</h2>
+							<p>En estos momentos, tanto la web como la plataforma están en construcción. Si necesitas información adicional de los objetivos de la plataforma y las posibilidades que ofrece no dudes en ponerte en contacto con nosotros rellenando este formulario.</p>
+						</div>
+						<div class="col-lg-5 col-lg-offset-1" data-scrollreveal="enter right over 1.5s">
+							<br>
+							<form action="" method="POST" id="contactForm" enctype="text/plain" novalidate>
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Nombre</label>
+										<input type="text" class="form-control" placeholder="Nombre" id="name" name="comment_nombre" required data-validation-required-message="Por favor, introduce tu nombre.">
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Dirección de email</label>
+										<input type="email" class="form-control" placeholder="Dirección de correo" id="email" name="comment_email" required data-validation-required-message="Por favor, introduce tu dirección de correo.">
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<div class="row control-group">
+									<div class="form-group col-xs-12 floating-label-form-group controls">
+										<label>Mensaje</label>
+										<textarea rows="5" class="form-control" placeholder="Mensaje" id="message" name="comment_texto" required data-validation-required-message="Por favor, introduce un mensaje"></textarea>
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<br>
+								<div id="success"></div>
+								<div class="row">
+									<div class="form-group col-xs-12">
+										<button type="submit" class="btn btn-lg btn-primary btn-square btn-raised">Enviar</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section> -->
+
+            <!-- Customers Section -->
+            <section id="customers" class="services-1">
+                <div class="container">
+                  <div class="row" style="margin-top: 30px;">
+                    <div class="col-lg-12 text-center">
+                      <h2> Usuarios de Kibotics </h2>
+                      <br>
+                      <div class="col-sm-4">
+                        <div class="customer-card">
+                            <h2>URJC</h2>
+                            <div class="customer-image">
+                                <a href="https://www.urjc.es/universidad/presentacion"><img src="{% static 'assets/img/logos/logo_urjc.png' %}" alt="logo_urjc" style="width:100px;height:125px;"></a>
+                            </div>
+                            <p class="customer-description">Universidad Rey Juan Carlos</p>
+                            <!--<a href="#blog" class="arrow-link"><i class="fa fa-chevron-right"></i> Saber más</a>-->
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="customer-card">
+                            <h2 style="font-size:30px">Ayuntamiento de Fuenlabrada</h2>
+                            <div class="customer-image">
+                                <a href="http://www.ayto-fuenlabrada.es/index.do?MP=14&MS=0&MN=1&TR=A&IDR=7&id=6071&textobuscado=ingeniate"><img src="{% static 'assets/img/logos/logo_ayuntamiento_fuenlabrada.png' %}" alt="logo_fuenlabrada" style="width:75px;height:100px;"></a>
+                            </div>
+                            <p class="customer-description">EPC Ingéniate</p>
+                            <!--<a href="#blog" class="arrow-link"><i class="fa fa-chevron-right"></i> Saber más</a>-->
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="customer-card">
+                            <h2>RoboCampeones</h2>
+                            <div class="customer-image">
+                                <a href="http://robocampeones.org/el-torneo.html"><img src="{% static 'assets/img/logos/logo_robocampeones.png' %}" alt="logo_robocampeones" style="width:130px;height:125px;"></a>
+                            </div>
+                            <p class="customer-description">Torneo RoboCampeones 2019</p>
+                            <!--<a href="#blog" class="arrow-link"><i class="fa fa-chevron-right"></i> Saber más</a>-->
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+                <!--<div class="container">
+                  <div class="row" style="margin-top: 30px;">
+                    <div class="col-lg-12 text-center">
+                      <div class="col-sm-4">
+                        <div class="customer-card">
+                            <h2>INTEF</h2>
+                            <div class="customer-image">
+                                <a href="https://intef.es/quienes-somos/"><img src="{% static 'assets/img/logos/logo_intef.png' %}" alt="logo_intef" style="width:100px;height:100px;"></a>
+                            </div>
+                            <p class="customer-description">Instituto Nacional de Tecnologías Educativas y de Formación del Profesorado</p>
+                            <a href="#blog" class="arrow-link"><i class="fa fa-chevron-right"></i> Saber más</a>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="customer-card">
+                            <h2>Logix5</h2>
+                            <div class="customer-image">
+                                <a href="https://www.logix5.com/roboticaeducativa/about-us-2/"><img src="{% static 'assets/img/logos/logo_logix5.png' %}" alt="logo_logix5" style="width:100px;height:100px;"></a>
+                            </div>
+                            <p class="customer-description">Empresa de base tecnológica especializada en Robótica Educativa y Programación</p>
+                            <a href="#blog" class="arrow-link"><i class="fa fa-chevron-right"></i> Saber más</a>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="customer-card">
+                            <h2 style="font-size:30px">Asociación Programamos</h2>
+                            <div class="customer-image">
+                                <a href="https://programamos.es/quienes-somos/"><img src="{% static 'assets/img/logos/logo_asociacion_programamos.png' %}" alt="logo_programamos" style="width:110px;height:75px;"></a>
+                            </div>
+                            <p class="customer-description">Asociación promotora del Pensamiento Computacional</p>
+                            <a href="#blog" class="arrow-link"><i class="fa fa-chevron-right"></i> Saber más</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+            </section>
+
+            <!-- Footer 1 -->
+			<footer id="contact" class="footer-1">
+				<div class="upper">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
+								<h3 class="script"><img src="{% static 'img/logo_sin_fondo-vertical_azul.png' %}" height="50px" width="100px"></h3>
+								<address>
+									<strong>Asociación de robótica e inteligencia artificial JdeRobot</strong>
+                                    <br>
+									<br>kibotics@gmail.com
+									<br>
+									<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
+								</address>
+							</div>
+							
+							<div class="col-md-2">
+								<h4>Síguenos en:</h4>
+								<ul class="list-unstyled footer-links">
+									<li>
+										<a href="https://twitter.com/KiboticsOrg"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+									</li>
+									<li>
+										<a href="https://www.youtube.com/channel/UCVH_ODFODyRUidhtR0IIZnw/featured"><i class="fa fa-fw fa-youtube"></i> YouTube</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-md-4">
+                                <ul class="list-unstyled footer-links">                                	
+                                    <!--<li>
+									    <img src="{% static 'assets/img/logos/web_LogoINTEF_2018_conleyenda.png' %}" class="img-fluid" alt="Responsive image">
+                                    </li>
+									<li>
+										<img src="{% static 'assets/img/logos/MEFP.Gob.Web.jpg' %}" class="img-fluid" alt="Responsive image" style="max-height:90px">
+									</li>-->
+                                    <li>
+										<center><img src="{% static 'assets/img/logos/jderobot_web_logo.png' %}" class="img-fluid" alt="jderobot" style="max-height:100px; max-width:270px;margin-top:20px;"></center>
+									</li>
+                                </ul>
+                                
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer 2 -->
+            <div class="lower">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="small">Derechos de autor &copy; 2019 - Asociación JdeRobot.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    <!--<div id="portfolio-modal-campamento" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="color:black; font-size: 17px">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-md-12">
+                        <h2 class="page-header"><strong>¡Taller de Robótica Educativa Kibotics en Google Campus Madrid!</strong></h32>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>¿Cúando?:</h3>
+                        <ul>
+                            <li>El 20 de Julio de 10h a 13h.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <h3>¿Qué vamos a hacer?:</h3>
+                        <ul>
+                            <li>Programarás Robots en <strong>Scratch</strong> y en <strong>Python</strong>.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <h3>¿Más info?:</h3>
+                        <ul>
+                            <li>¡Es Gratuito! Pero no olvides traer tu portatil, los Robots los ponemos nosotros. No necesitas instalar nada, solo tu navegador.</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12">
+                        <h3>¡Me apunto!:</h3>
+                        <ul>
+                            <li>Incribete <a href="https://forms.gle/Azz73QvXZuq4uTFUA"><strong>aquí</strong></a></li>
+                            <li>¡Tenemos plazas limitadas y no queremos que te quedes fuera, así que, no te desucides!</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Cualquier duda, envíanos un correo a <a href = "mailto: kibotics@gmail.com"> kibotics@gmail.com</a></h3>
+                        <ul class="list-unstyled project-details">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <div id="portfolio-modal-1" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">PiBot Sigue Línea</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/a0aIqyyEEnw" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>PiBot - Sigue Línea</h3>
+                        <p>En este ejemplo se ve al Pibot resolviendo el circuito siguendo la línea.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Python</li>
+                            <li>
+                                <strong>Hardware: </strong>PiBot, Motores, Infrarrojos</li>
+                            <li>
+                                <strong>Ejercicio: </strong>PiBot Usando Python</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="portfolio-modal-2" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">PiBot - Sigue Pelota</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/fOKXuU-bmRA" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>PiBot usando visión artificial:</h3>
+                        <p>Para este ejemplo, el PiBot es capaz de seguir la pelota naranja utilizando para ello la cámara que lleva incorporada y la visión artificial para localizarla y seguirla</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Python</li>
+                            <li>
+                                <strong>Hardware: </strong>PiBot, Cámara, Motores</li>
+                            <li>
+                                <strong>Ejercicio: </strong>PiBot siguiendo la pelota.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="portfolio-modal-3" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">PiBot - Choca Gira</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/dQGgcqze3iA" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>PiBot evitando obstáculos:</h3>
+                        <p>En este ejemplo el PiBot se detendrá, retocederá y girará cuando alcance un obstáculo en frente de su camino, corrigiendo la posición hacia una que no haya obstáculo.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Python</li>
+                            <li>
+                                <strong>Hardware: </strong>PiBot, Motores, Ultrasonidos</li>
+                            <li>
+                                <strong>Ejercicio: </strong>PiBot Evitando obstáculos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="portfolio-modal-4" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">PiBot - Control de posición</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/2kjOFrhrb_o" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>PiBot usando el control de posición:</h3>
+                        <p>El PiBot tiene calibrados los motores de tal manera que es capaz de hacer giros perfectos y, por ejemplo, volver al punto de donde salió, con 4 giros de 90º</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Python.</li>
+                            <li>
+                                <strong>Hardware: </strong>PiBot, Motores.</li>
+                            <li>
+                                <strong>Ejercicio: </strong>PiBot usando el control de posición.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="portfolio-modal-5" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Sigue Línea Visión</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/LhRrHKMnaqg" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Sigue línea usando visión.</h3>
+                        <p>Usando visión artificial, este ejercicio consiste en seguir la línea procesando la imagen que se recoge a través de la cámara del fórmula 1.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Python.</li>
+                            <li>
+                                <strong>Hardware: </strong>Cámara. Motores</li>
+                            <li>
+                                <strong>Ejercicio: </strong>Sigue línea usando visión artificial.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="portfolio-modal-6" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Gato ratón</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/P5NpReqhusw" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Juego de Gato ratón</h3>
+                        <p>En este ejercicio se pretende jugar al juego del gato y el ratón programando el drone del gato. Tendrá que tener suficiente lógica como para perseguir a un ratón inquieto que lo único que querrá será huir.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Python.</li>
+                            <li>
+                                <strong>Hardware: </strong>Drones.</li>
+                            <li>
+                                <strong>Ejercicio: </strong>Juego gato-ratón usando drones.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+	<!-- Portfolio - Mbot usando scratch-->
+    <!-- <div id="portfolio-modal-1" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Mbot usando Scratch</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/qKSXrXt5CP0" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot usando Scratch:</h3>
+                        <p>En este ejemplo puede verse como funciona un Mbot usando únicamente Scratch.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Scratch</li>
+                            <li>
+                                <strong>Hardware: </strong>Mbot</li>
+                            <li>
+                                <strong>Ejercicio: </strong>Mbot Usando Scratch</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+	<!-- Portfolio - SOS -->
+    <!-- <div id="portfolio-modal-2" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">S.O.S - Mbot pide ayuda</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/qKSXrXt5CP0" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot usando Scratch:</h3>
+                        <p>Usando los led del Mbot se programan para que parpadeen como si estuviera pidiendo ayuda.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Mbot</li>
+                            <li>
+                                <strong>Hardware: </strong>S.O.S</li>
+                            <li>
+                                <strong>Ejercicio: </strong>MBot - SOS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+	<!-- Portfolio - Matriz LED -->
+    <!-- <div id="portfolio-modal-3" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Mbot - Matriz LED</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/GCjKJkZU" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot usando la Matriz LED</h3>
+                        <p>La matriz permite encender los LEDs creando efectos como, en este ejemplo, una boca hablando.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Mbot</li>
+                            <li>
+                                <strong>Hardware: </strong>Matriz LED</li>
+                            <li>
+                                <strong>Ejercicio: </strong>MBot - Matriz LED</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+	<!-- Portfolio - Sistema de aparcamiento -->
+    <!-- <div id="portfolio-modal-4" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Mbot - Sistema de aparcamiento</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/ahRu9iGiSsk" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot - Sistema de aparcamiento:</h3>
+                        <p>El Mbot se detiene antes de llegar al obstáculo y se detiene evitando colisionar con el obstáculo. Es el principio que utilizan los sistemas de aparcamiento de los coches actuales.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Mbot</li>
+                            <li>
+                                <strong>Hardware: </strong>Mbot</li>
+                            <li>
+                                <strong>Ejercicio: </strong>MBot - Sistema de aparcamiento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+	<!-- Portfolio - Choca Gira -->
+    <!-- <div id="portfolio-modal-5" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Mbot - Choca - gira</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/RfittrWwBRU" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot - Choca - Gira:</h3>
+                        <p>Una práctica muy famosa es la del "Choca - Gira". El robot, cuando se encuentra con un obstáculo, frena antes de impactar y gira 90º en busca de avanzar por otro camino.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Mbot</li>
+                            <li>
+                                <strong>Hardware: </strong>Mbot</li>
+                            <li>
+                                <strong>Ejercicio: </strong>MBot - Choca Gira</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+	<!-- Portfolio - Sensor de sonido -->
+    <!-- <div id="portfolio-modal-6" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Mbot - Sensor de sonido</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/yDMAS_O4-1g" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot - Sensor de sonido:</h3>
+                        <p>Utilizando el micrófono, el Mbot comienza a andar cuando escucha una palmada o un sonido muy alto.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Mbot</li>
+                            <li>
+                                <strong>Hardware: </strong>Mbot</li>
+                            <li>
+                                <strong>Ejercicio: </strong>MBot - Sensor de sonido</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+	<!-- Portfolio - Sigue líneas-->
+    <!-- <div id="portfolio-modal-7" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Mbot - Sigue líneas</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/j6tIT7Dpp6g" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot - Sigue líneas:</h3>
+                        <p>Usando el sensor de sigue líneas del Mbot, distintos circuitos y al final integrando también el control remoto IR.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Mbot</li>
+                            <li>
+                                <strong>Hardware: </strong>Mbot</li>
+                            <li>
+                                <strong>Ejercicio: </strong>MBot - Sigue líneas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ -->
+
+
+	<!-- Portfolio - Jugando al fútbol -->
+    <!-- <div id="portfolio-modal-8" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Mbot - Jugando al fútbol</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/ESVp9vXX6y0" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot - Jugando al fútbol:</h3>
+                        <p>Usando el sigue líneas para evitar que el robot se salga del campo y controlándolo con el mando IR, hacemos una mini-liga de fútbol con los mBot. OJO! Si utilizamos las mismas teclas para los dos robot, los mandos harán interferencia entre ellos.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Mbot</li>
+                            <li>
+                                <strong>Hardware: </strong>Mbot</li>
+                            <li>
+                                <strong>Ejercicio: </strong>MBot - Jugando al fútbol</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+	<!-- Portfolio - Camino predefinido -->
+    <!-- <div id="portfolio-modal-9" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Mbot - Camino predefinido</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe src="https://www.youtube.com/embed/u1xsjJufbM0" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                        <iframe src="https://www.youtube.com/embed/u1xsjJufbM0" frameborder="0" allow="encrypted-media" allowfullscreen width="400" height="225" style="border: none;"></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Mbot - Camino predefinido:</h3>
+                        <p>Ejercicio para aprender a usar los motores del robot mBot.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h3>Detalles:</h3>
+                        <ul class="list-unstyled project-details">
+                            <li>
+                                <strong>Software: </strong>Mbot</li>
+                            <li>
+                                <strong>Hardware: </strong>Mbot</li>
+                            <li>
+                                <strong>Ejercicio: </strong>MBot - Camino predefinido</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+    <!-- Más videos -->
+    <!-- <div id="portfolio-modal-10" class="portfolio-modal modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row first">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">Más videos de ejemplo:</h2>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="400" height="225" src="https://www.youtube.com/embed/Z45ddTAWmOI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Ejemplo con el que movemos el MBot usando sólo Scratch.</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/CySO3E9PHvM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Objetivo: que el robot no se choque.</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/OYZORNav8Oc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Objetivo: que el robot no se choque (2).</h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ahRu9iGiSsk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> 
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Choca - Gira</h3>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/d2rpNZVdW_c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>                    
+                    </div>
+                    <div class="col-md-4">
+                        <h3>MBot responde al ruido.</h3>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RIujFkMoTOs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>MBot: motores</h3>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/B57fvyWFqFY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Parpadeo de los ojos en el panel LED.</h3>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/qEq_ZyvzEjM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>MBot - Panel LED</h3>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-3dNuKiH5hk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Choca - Gira - Mbot</h3>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/k-xIU_cmcac" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Choca - Gira inalámbrico</h3>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5NFqIf1R0RI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Choca - Gira - Bluetooth</h3>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/fmaZi7pfXW8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>PiBot: Evita chocarse. Con boton 'start'</h3>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/4r5qz0wcs1w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Huye de la luz</h3>
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/2YbC9mTAoco" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Palmadas</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- Core JavaScript Files -->
+    <script src='{% static "assets/js/jquery-1.10.2.js" %}'></script>
+    <script src='{% static "assets/js/bootstrap/bootstrap.min.js" %}'></script>
+    <script src='{% static "assets/js/modernizr.custom.js" %}'></script>
+
+    <!-- Plugin JavaScript Files -->
+    <script src='{% static "assets/js/plugins/jquery.easing/jquery.easing.1.3.js" %}'></script>
+    <script src='{% static "assets/js/plugins/jquery.fitvids/jquery.fitvids.js" %}'></script>
+    <script src='{% static "assets/js/plugins/jquery.fs.wallpaper/jquery.fs.wallpaper.min.js" %}'></script>
+    <script src='{% static "assets/js/plugins/jquery.magnific-popup/jquery.magnific-popup.min.js" %}'></script>
+    <script src='{% static "assets/js/plugins/jquery.tubular/jquery.tubular.1.0.js" %}'></script>
+    <script src='{% static "assets/js/plugins/owl.carousel/owl.carousel.js" %}'></script>
+    <script src='{% static "assets/js/plugins/scrollReveal/scrollReveal.js" %}'></script>
+    <script src='{% static "assets/js/plugins/stellar/stellar.js" %}'></script>
+    <script src='{% static "assets/js/plugins/SmoothScroll/SmoothScroll.js" %}'></script>
+    <script src='{% static "assets/js/plugins/jqBootstrapValidation/jqBootstrapValidation.js" %}'></script>
+    <script src='{% static "assets/js/contact_me.js" %}'></script>
+    <script src='{% static "assets/js/plugins/isotope/isotope.pkgd.min.js" %}'></script>
+
+    <!-- Spectrum JavaScript Files -->
+    <script src='{% static "assets/js/spectrum.nav.js" %}'></script>
+    <script src='{% static "assets/js/spectrum.js" %}'></script>
+
+    <!-- Script to Activate Tubular jQuery Plugin - Use this script if you want to use a YouTube video as a background video. -->
+    <script>
+    $('.video-bg').tubular({
+        videoId: 'HNruuiFJKrw',
+        mute: true,
+        loop: true
+    });
+    </script>
+
+</body>
+
+</html>
+
+

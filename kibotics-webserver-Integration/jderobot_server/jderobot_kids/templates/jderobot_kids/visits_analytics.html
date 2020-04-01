@@ -1,0 +1,78 @@
+{% extends "jderobot_kids/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href='{% static "css/analytics.css" %}'>
+
+
+<title>Analytics Data</title>
+
+
+<body>
+  <div class="content">
+
+    <div class='main'>
+
+      <div id="container" style="white-space:nowrap">
+
+        <div id="texts" style="display:inline; white-space:nowrap;" class="main">
+          <h1>ESTADÍSTICAS DE VISITAS PARA <b>{{used_range}}</b> DIAS</h1>
+        </div>
+      </div>
+
+    </div>
+    <hr/>
+
+
+
+    <div class="main">
+
+      <br><br><h2>VISITAS POR DIA DE LA SEMANA</h2>
+      <hr/>
+
+      <img class='analyticsIMG'src="data:image/png;base64, {{ image_visit_week }}" alt="Data not loaded properly" width=500 height=auto />
+    </div>
+
+
+    <div class="main">
+
+      <br><br><h2>VISITAS POR HORA DEL DIA</h2>
+      <hr/>
+
+      <img class='analyticsIMG'src="data:image/png;base64, {{ image_visit_hour }}" alt="Data not loaded properly" width=500 height=auto />
+    </div>
+
+
+    <div class="main">
+
+      <br><br><h2>MAPA DE VISITAS</h2>
+      <hr/>
+      <img class='analyticsIMG'src="data:image/png;base64, {{ image_IP_map }}" alt="Data not loaded properly" width=500 height=auto />
+    </div>
+
+    <div class="main">
+
+      <br><br><h2>OTROS</h2>
+      <hr/>
+
+      <div class="row">
+        <div class="column">
+          <img class='analyticsIMG'src="data:image/png;base64, {{ image_os }}" alt="Data not loaded properly" width=500 height=auto />
+        </div>
+        <div class="column">
+          <img class='analyticsIMG'src="data:image/png;base64, {{ image_device }}" alt="Data not loaded properly" width=500 height=auto />
+        </div>
+        <div class="column">
+          <img class='analyticsIMG'src="data:image/png;base64, {{ image_browser }}" alt="Data not loaded properly" width=500 height=auto />
+        </div>
+      </div>
+    </div>
+
+
+    <div class='main'">
+      <hr/>
+    </div>
+  </div>
+</body>
+
+{% endblock %}
