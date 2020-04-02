@@ -1,24 +1,2 @@
 .idea/
 
-#Archivos de compilación
-*.pyc
-*.swp
-
-.DS_Store
-.out
-.bash_history
-.pyarmor_capsule.zip
-
-nohup.out
-
-# Configuración de vscode
-vscode/*
-.vscode/*
-jderobot_server/.vscode/settings.json
-
-# Virtual Env
-kids-venv/*
-
-# Carpetas de Usuarios
-users/
-
