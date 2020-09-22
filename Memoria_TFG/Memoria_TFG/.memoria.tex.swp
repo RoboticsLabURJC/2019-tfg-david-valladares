@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{\textbf{Deep Learning for Detecting Objects in Images with Robots using TensorFlowjs and Websim/Kibotics}}
+\author{Author: Jorge Cruz de la Haza\\
+		Tutor: Dr. Jose Maria Cañas Plaza\\
+		Co-tutor: Prf. Julio Manuel Vega Pérez}
+\date{}
+\begin{document}
+
+\maketitle
+\clearpage
+
+\section{Introduction}
+
+Summary of the project
+
+This is how to write cursive and footnotes \emph{cursive}\footnote{https://launchpad.net/rubber/} \& \emph{other}\footnote{http://www.phys.psu.edu/{\textasciitilde}collins/software/latexmk-jcc/}.
+
+All inside the {} get the cursive mode \emph{(View $\rightarrow$ Page layout in preview)}.
+
+\section{Objectives}
+
+\section{Infrastructure}
+
+\section{ObjectDetector TensorFlowjs}
+
+\section{FollowRoad method}
+
+\section{Conclusions}
+
+\end{document}
