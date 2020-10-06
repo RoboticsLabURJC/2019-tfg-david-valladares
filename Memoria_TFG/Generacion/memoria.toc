@@ -1,0 +1,67 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducción}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Robótica}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Robótica educativa}{9}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Kibotics}{13}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Objetivos}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Objetivos del TFG}{15}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Requisitos}{16}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Metodología}{16}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Plan de trabajo}{17}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Herramientas}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Lenguaje Python}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Lenguaje HTML}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Lenguaje JavaScript}{20}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Bootstrap}{20}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Django}{21}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Flask}{21}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Web Serial Api}{22}{section.3.7}%
+\contentsline {section}{\numberline {3.8}PyInstaller}{23}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Placa mCore}{23}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Raspberry Pi}{24}{section.3.10}%
+\contentsline {chapter}{\numberline {4}Integración del robot Mbot}{26}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Características del Mbot}{26}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Diseño}{26}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Lado Cliente}{28}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Editor en el navegador web}{28}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Conexión con el Mbot vía USB}{28}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Envío del código fuente al servidor}{30}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Recepción del ejecutable}{31}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Carga en el robot físico y ejecución a bordo}{31}{subsection.4.3.5}%
+\contentsline {section}{\numberline {4.4}Lado Servidor}{32}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Recepción del código fuente}{33}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Conversión a lenguaje Arduino/C++}{33}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Compilación cruzada}{33}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Envío del ejecutable}{34}{subsection.4.4.4}%
+\contentsline {section}{\numberline {4.5}Validación experimental}{34}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Integración del dron Tello}{37}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Características del drone Tello}{37}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Diseño}{39}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Lado cliente}{39}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Preparación del anfitrión}{39}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Editor en el navegador web}{41}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Envío del código fuente al servidor}{41}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Recepción del ejecutable}{42}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Conexión con el drone}{43}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Ejecución}{43}{subsection.5.3.6}%
+\contentsline {section}{\numberline {5.4}Lado servidor}{45}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Recepción del código fuente}{45}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Empaquetado}{45}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Envío del empaquetado}{46}{subsection.5.4.3}%
+\contentsline {section}{\numberline {5.5}Validación experimental}{47}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Integración del robot GoPiGo3}{50}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Características del Robot GoPiGo3}{50}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Diseño}{52}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Lado Cliente}{53}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Editor en el navegador web}{55}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Envío del código al servidor Flask en el robot}{55}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Lado Servidor Kibotics}{57}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Lado GoPiGo3}{57}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Preparación del ordenador a bordo del GoPiGo3}{57}{subsection.6.5.1}%
+\contentsline {subsection}{\numberline {6.5.2}Recepción a bordo del código fuente}{59}{subsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.5.3}Creación del proceso que ejecuta la aplicación robótica}{60}{subsection.6.5.3}%
+\contentsline {section}{\numberline {6.6}Validación experimental}{61}{section.6.6}%
+\contentsline {chapter}{\numberline {7}Conclusiones}{63}{chapter.7}%
+\contentsline {subsection}{\numberline {7.0.1}Conclusiones}{63}{subsection.7.0.1}%
+\contentsline {subsection}{\numberline {7.0.2}Líneas futuras}{64}{subsection.7.0.2}%
+\contentsline {chapter}{\numberline {8}Bibliografía}{65}{chapter.8}%

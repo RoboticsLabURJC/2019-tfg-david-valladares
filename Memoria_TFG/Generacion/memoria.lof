@@ -1,0 +1,46 @@
+\babel@toc {spanish}{}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Cocepto de Robot\relax }}{7}{figure.caption.5}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Tipos de robots\relax }}{8}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Sistema robótico DaVinci\relax }}{9}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Robot Perseverance\relax }}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Las cuatro palabras de la Robótica educativa (Báez \textit {et al}., 2011).\relax }}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Enseñanza STEM\relax }}{11}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Lenguaje de programación Scratch\relax }}{11}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Mbot (esquina superior izquierda), Mindstorms EV3 (esquina superior derecha), ejemplo de robot construido con VEX (esquina inferior izquierda) y Root Robot (equina inferior derecha)\relax }}{12}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Robot PiBot\relax }}{13}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Ejercicio con Blockly en Kibotics\relax }}{14}{figure.caption.14}%
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Ejercicio con Python en Kibotics\relax }}{14}{figure.caption.15}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Modelo iterativo\relax }}{16}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Blog para el seguimiento del TFG\relax }}{17}{figure.caption.17}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Bootstrap\relax }}{21}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Arquitectura Django\relax }}{22}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arquitectura Django\relax }}{22}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Placa mCore\relax }}{24}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Proceso de carga de un programa a la placa mCore\relax }}{24}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Características hardware para la Raspberry Pi modelo 3B\relax }}{25}{figure.caption.23}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Partes del robot Mbot\relax }}{27}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Software mBlock\relax }}{27}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Infraestructura seguida para la integración del Mbot\relax }}{28}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Editor Blockly para el Mbot \relax }}{29}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Fotogramas del vídeo de ejemplo de envío para el Mbot en MacOS\relax }}{36}{figure.caption.28}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Esquema del dron Tello\relax }}{38}{figure.caption.29}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces IDE de Arduino (arriba a la izquiera), DroneBlocks (arriba a la derecha) y Tello EDU App (abajo)\relax }}{38}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Arquitectura del desarrollo para el Tello\relax }}{39}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Editor para programar el dron Tello en Python\relax }}{41}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Conectarse al punto de acceso WiFi emitido por el dron\relax }}{43}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Descompresión en Windows\relax }}{44}{figure.caption.34}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Fotogramas del vídeo de ejemplo de realización de un programa para el Tello en Linux\relax }}{49}{figure.caption.35}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Diseño hardware del GopiGo3\relax }}{50}{figure.caption.36}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Sotfware para GoPiGo3\relax }}{51}{figure.caption.37}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Editor para el lenguaje Bloxter\relax }}{52}{figure.caption.38}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Diseño para la integración del GoPiGo3. La línea roja indica los componentes que deben estar conectados a la misma red WiFi\relax }}{52}{figure.caption.39}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Editor python para el GoPiGo3\relax }}{55}{figure.caption.40}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Fotogramas del vídeo de ejemplo de realización de un programa para el GoPiGo3 en MacOS\relax }}{62}{figure.caption.41}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -1,0 +1,66 @@
+\BOOKMARK [0][-]{chapter.1}{Introducci\363n}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Rob\363tica}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Rob\363tica educativa}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Kibotics}{chapter.1}% 4
+\BOOKMARK [0][-]{chapter.2}{Objetivos}{}% 5
+\BOOKMARK [1][-]{section.2.1}{Objetivos del TFG}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{Requisitos}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.3}{Metodolog\355a}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.4}{Plan de trabajo}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{Herramientas}{}% 10
+\BOOKMARK [1][-]{section.3.1}{Lenguaje Python}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.2}{Lenguaje HTML}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.3}{Lenguaje JavaScript}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.4}{Bootstrap}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.5}{Django}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.6}{Flask}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.7}{Web Serial Api}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.8}{PyInstaller}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.9}{Placa mCore}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.10}{Raspberry Pi}{chapter.3}% 20
+\BOOKMARK [0][-]{chapter.4}{Integraci\363n del robot Mbot}{}% 21
+\BOOKMARK [1][-]{section.4.1}{Caracter\355sticas del Mbot}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.2}{Dise\361o}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.3}{Lado Cliente}{chapter.4}% 24
+\BOOKMARK [2][-]{subsection.4.3.1}{Editor en el navegador web}{section.4.3}% 25
+\BOOKMARK [2][-]{subsection.4.3.2}{Conexi\363n con el Mbot v\355a USB}{section.4.3}% 26
+\BOOKMARK [2][-]{subsection.4.3.3}{Env\355o del c\363digo fuente al servidor}{section.4.3}% 27
+\BOOKMARK [2][-]{subsection.4.3.4}{Recepci\363n del ejecutable}{section.4.3}% 28
+\BOOKMARK [2][-]{subsection.4.3.5}{Carga en el robot f\355sico y ejecuci\363n a bordo}{section.4.3}% 29
+\BOOKMARK [1][-]{section.4.4}{Lado Servidor}{chapter.4}% 30
+\BOOKMARK [2][-]{subsection.4.4.1}{Recepci\363n del c\363digo fuente}{section.4.4}% 31
+\BOOKMARK [2][-]{subsection.4.4.2}{Conversi\363n a lenguaje Arduino/C++}{section.4.4}% 32
+\BOOKMARK [2][-]{subsection.4.4.3}{Compilaci\363n cruzada}{section.4.4}% 33
+\BOOKMARK [2][-]{subsection.4.4.4}{Env\355o del ejecutable}{section.4.4}% 34
+\BOOKMARK [1][-]{section.4.5}{Validaci\363n experimental}{chapter.4}% 35
+\BOOKMARK [0][-]{chapter.5}{Integraci\363n del dron Tello}{}% 36
+\BOOKMARK [1][-]{section.5.1}{Caracter\355sticas del drone Tello}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.2}{Dise\361o}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.3}{Lado cliente}{chapter.5}% 39
+\BOOKMARK [2][-]{subsection.5.3.1}{Preparaci\363n del anfitri\363n}{section.5.3}% 40
+\BOOKMARK [2][-]{subsection.5.3.2}{Editor en el navegador web}{section.5.3}% 41
+\BOOKMARK [2][-]{subsection.5.3.3}{Env\355o del c\363digo fuente al servidor}{section.5.3}% 42
+\BOOKMARK [2][-]{subsection.5.3.4}{Recepci\363n del ejecutable}{section.5.3}% 43
+\BOOKMARK [2][-]{subsection.5.3.5}{Conexi\363n con el drone}{section.5.3}% 44
+\BOOKMARK [2][-]{subsection.5.3.6}{Ejecuci\363n}{section.5.3}% 45
+\BOOKMARK [1][-]{section.5.4}{Lado servidor}{chapter.5}% 46
+\BOOKMARK [2][-]{subsection.5.4.1}{Recepci\363n del c\363digo fuente}{section.5.4}% 47
+\BOOKMARK [2][-]{subsection.5.4.2}{Empaquetado}{section.5.4}% 48
+\BOOKMARK [2][-]{subsection.5.4.3}{Env\355o del empaquetado}{section.5.4}% 49
+\BOOKMARK [1][-]{section.5.5}{Validaci\363n experimental}{chapter.5}% 50
+\BOOKMARK [0][-]{chapter.6}{Integraci\363n del robot GoPiGo3}{}% 51
+\BOOKMARK [1][-]{section.6.1}{Caracter\355sticas del Robot GoPiGo3}{chapter.6}% 52
+\BOOKMARK [1][-]{section.6.2}{Dise\361o}{chapter.6}% 53
+\BOOKMARK [1][-]{section.6.3}{Lado Cliente}{chapter.6}% 54
+\BOOKMARK [2][-]{subsection.6.3.1}{Editor en el navegador web}{section.6.3}% 55
+\BOOKMARK [2][-]{subsection.6.3.2}{Env\355o del c\363digo al servidor Flask en el robot}{section.6.3}% 56
+\BOOKMARK [1][-]{section.6.4}{Lado Servidor Kibotics}{chapter.6}% 57
+\BOOKMARK [1][-]{section.6.5}{Lado GoPiGo3}{chapter.6}% 58
+\BOOKMARK [2][-]{subsection.6.5.1}{Preparaci\363n del ordenador a bordo del GoPiGo3}{section.6.5}% 59
+\BOOKMARK [2][-]{subsection.6.5.2}{Recepci\363n a bordo del c\363digo fuente}{section.6.5}% 60
+\BOOKMARK [2][-]{subsection.6.5.3}{Creaci\363n del proceso que ejecuta la aplicaci\363n rob\363tica}{section.6.5}% 61
+\BOOKMARK [1][-]{section.6.6}{Validaci\363n experimental}{chapter.6}% 62
+\BOOKMARK [0][-]{chapter.7}{Conclusiones}{}% 63
+\BOOKMARK [1][-]{subsection.7.0.1}{Conclusiones}{chapter.7}% 64
+\BOOKMARK [2][-]{subsection.7.0.2}{L\355neas futuras}{subsection.7.0.1}% 65
+\BOOKMARK [0][-]{chapter.8}{Bibliograf\355a}{}% 66
